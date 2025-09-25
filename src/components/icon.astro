@@ -1,0 +1,25 @@
+---
+import { Icon } from "icon.astro"
+import { SITE_CONFIG, ANIMATIONS } from "../config"
+---
+
+<div class="flex gap-4">
+  {SITE_CONFIG.socialLinks.map((link) => (
+    <a 
+      href={link.href} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="
+        group p-2 rounded-lg
+        transition-all duration-300 ease-in-out
+        hover:-translate-y-1 hover:shadow-lg hover:bg-white/80
+      "
+      aria-label={`Visit ${link.name} profile`}
+    >
+      <Icon 
+        name={`lucide:${link.icon}`} 
+        class={`w-6 h-6 ${ANIMATIONS.social[link.icon] || 'hover:scale-110 hover:text-blue-500 transition-all duration-300'}`} 
+      />
+    </a>
+  ))}
+</div>

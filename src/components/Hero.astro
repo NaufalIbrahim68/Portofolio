@@ -1,0 +1,33 @@
+---
+// File: src/components/Hero.astro (atau yang serupa)
+import type { HeroProps } from "@types";
+
+const { name, specialty, summary, cvButton } = Astro.props as HeroProps;
+---
+
+<section id="hero" class="flex flex-col items-start gap-4">
+  <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-50">
+    {name}
+  </h1>
+  
+  <h2 class="text-xl sm:text-2xl text-slate-300">
+    {specialty}
+  </h2>
+  
+  <p class="mt-2 max-w-2xl text-base sm:text-lg text-slate-400">
+    {summary}
+  </p>
+  
+  {cvButton && (
+    <a 
+      href={cvButton.link} 
+      download 
+      class="mt-4 inline-block rounded-lg bg-slate-800 px-6 py-3
+             font-semibold text-white transition-colors duration-300
+             hover:bg-slate-700 focus:outline-none focus:ring-2 
+             focus:ring-slate-500 focus:ring-offset-2"
+    >
+      {cvButton.text}
+    </a>
+  )}
+</section>

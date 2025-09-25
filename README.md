@@ -4,8 +4,7 @@
 
 Ini adalah website portofolio pribadi yang minimalis, aksesibel, dan responsif, dibangun menggunakan **Astro** dan **TailwindCSS**.
 
-> [\!NOTE]
-> Informasi yang terkandung dalam template ini, termasuk nama, gambar, dan konten, sepenuhnya fiktif dan dimaksudkan hanya untuk memberikan tampilan desain yang realistis. Setiap kebetulan dengan orang, peristiwa, atau situasi di kehidupan nyata adalah murni kebetulan. Anda disarankan untuk mengganti informasi ini dengan informasi Anda sendiri.
+
 
 ## 🔥 Fitur
 

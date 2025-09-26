@@ -1,5 +1,6 @@
 ---
 import type { SiteConfig } from "@types";
+import SocialLinks from "@components/SocialLinks.astro";
 
 type Props = Pick<SiteConfig, "author" | "socialLinks">;
 
@@ -25,9 +26,4 @@ const currentYear = new Date().getFullYear();
       ))
     }
   </ul>
-  <p class="text-xs">
-    {author} © {currentYear}. <span class="text-neutral"
-      >Designed & Developed by</span
-    > Moisés Machuca
-  </p>
 </footer>

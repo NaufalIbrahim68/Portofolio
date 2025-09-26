@@ -40,6 +40,7 @@ export const SITE_CONFIG: SiteConfig = {
       href: "https://www.instagram.com/ibrahim.naufal/"
     },
   ],
+
 };
 
 export const SITE_CONTENT: SiteContent = {

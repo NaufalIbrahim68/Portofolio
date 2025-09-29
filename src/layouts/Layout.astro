@@ -1,43 +1,49 @@
 ---
-import "@fontsource/be-vietnam-pro";
-import "@fontsource-variable/gabarito";
-import { SITE_CONFIG } from "@config";
+// src/layouts/Layout.astro
+
+// Impor CSS global untuk styling di seluruh situs
 import '../styles/global.css';
 
-const {
-  title,
-  description,
-  lang,
-  socialImage,
-  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
-} = SITE_CONFIG;
+// Menerima props untuk metadata SEO yang dinamis
+interface Props {
+  title: string;
+  description: string;
+}
 
-const ogImgUrl = canonicalURL + socialImage;
+const { title, description } = Astro.props;
+
+const socialImageUrl = new URL("/fotoprofil.png", Astro.site).href; // Ganti 'social-image.png' dengan nama file gambar Anda di folder /public
 ---
 <!doctype html>
-<html lang={lang} class="scroll-pt-16 scroll-smooth">
+<html lang="id" class="scroll-pt-16 scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    
+    {/* SEO Tags */}
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Naufal Ibrahim" />
 
+    {/* Open Graph Tags (untuk Facebook, LinkedIn, dll.) */}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={ogImgUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:alt" content={`Pratinjau situs ${title}`} />
 
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImgUrl} />
+    {/* Twitter Card Tags */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content={`Pratinjau situs ${title}`} />
+
   </head>
-  <body class="bg-black font-sans min-h-screen">
-    <main class="w-full">
-      <slot />
-    </main>
+  <body class="bg-slate-900 text-slate-300 font-sans flex flex-col min-h-screen">
+    <slot />
   </body>
 </html>

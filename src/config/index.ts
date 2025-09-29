@@ -10,6 +10,7 @@ const projectZenOg = "/src/assets/zen-og.png";
 const projectRaja = "/src/assets/raja.png";
 const aboutImage = "/src/assets/alejandro-big.jpg";
 
+
 export const SITE_CONFIG: SiteConfig = {
   title: "Naufal Ibrahim — Fullstack Developer",
   author: "Naufal Ibrahim",

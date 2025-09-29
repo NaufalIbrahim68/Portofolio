@@ -1,13 +1,11 @@
 ---
-// 1. Impor komponen Portfolio Anda
-import Portofolio from '../components/Portofolio.tsx';
-
-// 2. PERBAIKI BAGIAN INI:
-// Ganti nama impor menjadi 'Layout' agar sesuai dengan nama file aslinya
 import Layout from '../layouts/Layout.astro';
+import Portofolio from '../components/Portofolio.tsx';
 ---
 
-{/* Gunakan nama yang sudah diperbaiki di sini */}
-<Layout title="Portofolio Saya | Halaman Utama">
+<Layout 
+  title="Naufal Ibrahim | Fullstack Developer" 
+  description="Portofolio Naufal Ibrahim, seorang Fullstack Developer dengan keahlian di Laravel, Tailwind CSS, dan Next.js."
+>
   <Portofolio client:load />
 </Layout>

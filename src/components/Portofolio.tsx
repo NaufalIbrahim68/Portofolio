@@ -402,7 +402,7 @@ export default function Home() {
 
                     {/* WhatsApp Card */}
                     <a
-                      href="https://wa.me/6281234567890?text=Halo%20Naufal,%20saya%20tertarik%20dengan%20portfolio%20Anda"
+                      href="https://wa.me/6285159852911?text=Halo%20Naufal,%20saya%20tertarik%20dengan%20portfolio%20Anda"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group relative p-6 bg-slate-800/50 rounded-lg border border-slate-700 hover:border-green-400/50 hover:bg-slate-800/70 transition-all duration-300 hover:shadow-lg hover:shadow-green-400/10"

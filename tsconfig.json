@@ -1,16 +1,28 @@
 {
-  // 1. Tambahkan baris ini untuk mewarisi konfigurasi TypeScript dari Astro
   "extends": "astro/tsconfigs/strictest",
-
   "compilerOptions": {
     "baseUrl": "./src",
     "paths": {
-      "@components/*": ["components/*"],
-      "@layouts/*": ["layouts/*"],
-      "@config": ["config/index"],
-      "@types": ["types"],
-      "@icons/*": ["icons/*"],
-      "@styles/*": ["styles/*"]
-    }
+      "@components/*": [
+        "components/*"
+      ],
+      "@layouts/*": [
+        "layouts/*"
+      ],
+      "@config": [
+        "config/index"
+      ],
+      "@types": [
+        "types"
+      ],
+      "@icons/*": [
+        "icons/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }

@@ -1,33 +1,13 @@
 ---
-import { SITE_CONTENT } from "@config";
+// 1. Impor komponen Portfolio Anda
+import Portofolio from '../components/Portofolio.tsx';
 
-import Hero from "@components/Hero.astro";
-import Layout from "@layouts/Layout.astro";
-import Experience from "@components/Experience.astro";
-import Projects from "@components/Projects.astro";
-import About from "@components/About.astro";
-
-import "@styles/global.css";
+// 2. PERBAIKI BAGIAN INI:
+// Ganti nama impor menjadi 'Layout' agar sesuai dengan nama file aslinya
+import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout>
-  <!-- Hero Section -->
-  <section id="hero" class="bg-black text-white">
-    <Hero {...SITE_CONTENT.hero} />
-  </section>
-
-  <!-- Experience Section -->
-  <section id="experience" class="bg-neutral-900 text-white">
-    <Experience experience={SITE_CONTENT.experience} />
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="bg-black text-white">
-    <Projects projects={SITE_CONTENT.projects} />
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="bg-neutral-900 text-white">
-    <About {...SITE_CONTENT.about} name={SITE_CONTENT.hero.name} />
-  </section>
+{/* Gunakan nama yang sudah diperbaiki di sini */}
+<Layout title="Portofolio Saya | Halaman Utama">
+  <Portofolio client:load />
 </Layout>

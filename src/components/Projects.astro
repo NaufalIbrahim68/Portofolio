@@ -2,14 +2,23 @@
 import Section from "./Section.astro";
 import { Image } from "astro:assets";
 import type { ProjectProps } from "@types";
-import { ANIMATIONS } from "../config";
 
 interface Props {
   projects: ProjectProps[];
 }
 
 const { projects } = Astro.props;
+
+// Animations langsung di sini
+const ANIMATIONS = {
+  projects: [
+    { container: "transition-transform duration-300", image: "transform hover:scale-105" },
+    { container: "transition-transform duration-300", image: "transform hover:scale-110" },
+    { container: "transition-transform duration-300", image: "transform hover:scale-95" },
+  ],
+};
 ---
+
 
 <Section text="Featured Projects" href="projects">
   {
@@ -18,16 +27,17 @@ const { projects } = Astro.props;
       const animation = ANIMATIONS.projects[index % ANIMATIONS.projects.length];
       
       return (
-        <article class={`group overflow-hidden rounded-lg ${animation.container}`}>
+       <article class={`group overflow-hidden rounded-lg ${animation?.container ?? ""}`}>
           <a href={linkPreview} target="_blank" rel="noopener noreferrer" class="block">
             <div class="overflow-hidden rounded-lg">
-              <Image 
-                src={image} 
-                alt={alt}
-                width={800}
-                height={450}
-                class={`w-full h-auto ${animation.image}`}
-              />
+         <Image 
+  src={image} 
+  alt={alt}
+  width={800}
+  height={450}
+  class={`w-full h-auto ${animation?.image ?? ""}`}
+/>
+
             </div>
             <div class="p-4">
               <h3 class="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors duration-300">

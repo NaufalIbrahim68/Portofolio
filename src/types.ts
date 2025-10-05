@@ -1,6 +1,4 @@
-// src/types.ts
-
-import type { ImageMetadata } from "astro:assets";
+/// <reference types="astro/client" />
 
 export interface NavLink {
   text: string;
@@ -11,13 +9,12 @@ export interface SocialLink {
   name: string;
   icon: string;
   href: string;
-  // New properties for animations
   iconSvg?: string;
   hoverAnimation?: string;
 }
 
 export interface HeaderProps {
-  siteLogo: ImageMetadata;
+  siteLogo: string; // sebelumnya ImageMetadata
   navLinks: NavLink[];
 }
 
@@ -27,16 +24,21 @@ export interface SiteConfig extends HeaderProps {
   lang: string;
   author: string;
   socialLinks: SocialLink[];
-  socialImage: ImageMetadata;
+  socialImage: string; // sebelumnya ImageMetadata
   canonicalURL?: string;
 }
 
 export interface HeroProps {
-  title: string;
-  tagline: string;
+  name: string;
+  specialty: string;
   summary: string;
-  email: string;
+  cvButton?: {
+    link: string;
+    text: string;
+  };
+  tagline?: string; // <--- tambahkan ini
 }
+
 
 export interface ExperienceProps {
   company: string;
@@ -48,13 +50,12 @@ export interface ExperienceProps {
 
 export interface ProjectProps {
   title: string;
-  name?: string; // alias for title if needed
+  name?: string;
   summary: string;
   linkPreview: string;
   linkSource: string;
-  image: string | ImageMetadata; // Support both string and Astro ImageMetadata
+  image: string; // sebelumnya string | ImageMetadata
   alt: string;
-  // New properties for animations
   imageAnimation?: string;
   containerAnimation?: string;
   overlayAnimation?: string;
@@ -62,7 +63,7 @@ export interface ProjectProps {
 
 export interface AboutProps {
   description: string;
-  image: ImageMetadata;
+  image: string; // sebelumnya ImageMetadata
   alt: string;
 }
 
@@ -71,11 +72,4 @@ export interface SiteContent {
   experience: ExperienceProps[];
   projects: ProjectProps[];
   about: AboutProps;
-}
-
-export interface ImageMetadata {
-  src: string;
-  width: number;
-  height: number;
-  format: string;
 }

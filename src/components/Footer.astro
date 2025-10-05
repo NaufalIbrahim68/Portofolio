@@ -1,11 +1,9 @@
 ---
 import type { SiteConfig } from "@types";
-import SocialLinks from "@components/SocialLinks.astro";
 
-type Props = Pick<SiteConfig, "author" | "socialLinks">;
+type Props = Pick<SiteConfig, "socialLinks">;
 
-const { author, socialLinks } = Astro.props;
-const currentYear = new Date().getFullYear();
+const { socialLinks } = Astro.props;
 ---
 
 <footer

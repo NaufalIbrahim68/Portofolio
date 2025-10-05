@@ -1,7 +1,9 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Github, Linkedin, Mail, Download, ExternalLink, Instagram } from "lucide-react"
+import { GithubIcon, LinkedinIcon, InstagramIcon, Mail, Download, ExternalLink } from "lucide-react";
+import { Github } from "lucide-react";
+
 
 // Configuration data (matching your config structure)
 const SITE_CONFIG = {
@@ -101,9 +103,9 @@ const SITE_CONTENT = {
     },
   ],
   about: {
-    description: `Halo, saya Naufal Ibrahim, seorang Fullstack Developer dengan latar belakang Sistem Informasi. Saya berpengalaman dalam membangun aplikasi web modern menggunakan Laravel Framework, Tailwind CSS, dan Bahasa Pemrograman PHP.
+    description: `Halo, saya Naufal Ibrahim, Saya adalah lulusan baru dari Program Studi Sistem Informasi di Universitas Telkom Purwokerto.
 
-Fokus utama saya adalah menciptakan aplikasi yang tidak hanya fungsional, tetapi juga memiliki UI/UX yang intuitif, responsif, dan mudah digunakan. Saya juga terbiasa menyusun dokumentasi sistem yang rapi, mulai dari manual book hingga diagram UML, untuk memastikan keberlanjutan proyek.`,
+Saya adalah seorang Fullstack Developer dengan latar belakang Sistem Informasi. Saya berpengalaman dalam membangun aplikasi web modern menggunakan Laravel Framework, Tailwind CSS, dan Bahasa Pemrograman PHP.Fokus utama saya adalah menciptakan aplikasi yang tidak hanya fungsional, tetapi juga memiliki UI/UX yang intuitif, responsif, dan mudah digunakan. Saya juga terbiasa menyusun dokumentasi sistem yang rapi, mulai dari manual book hingga diagram UML, untuk memastikan keberlanjutan proyek.`,
   },
 }
 
@@ -155,18 +157,18 @@ export default function Home() {
     { id: "contact", label: "Contact" },
   ]
 
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case 'github':
-        return Github
-      case 'linkedin':
-        return Linkedin
-      case 'instagram':
-        return Instagram
-      default:
-        return Mail
-    }
+ const getIcon = (iconName: string) => {
+  switch (iconName) {
+    case 'github':
+      return GithubIcon
+    case 'linkedin':
+      return LinkedinIcon
+    case 'instagram':
+      return InstagramIcon
+    default:
+      return Mail
   }
+}
 
   const getSocialAnimation = (iconName: string) => {
     return ANIMATIONS.social[iconName as keyof typeof ANIMATIONS.social] || ""

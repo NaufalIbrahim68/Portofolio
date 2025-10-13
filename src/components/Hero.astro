@@ -1,8 +1,13 @@
 ---
-// File: src/components/Hero.astro (atau yang serupa)
-import type { HeroProps } from "@types";
+interface HeroProps {
+  name: string;
+  specialty: string;
+  summary: string;
+  cvButton?: { text: string; link: string };
+  tagline?: string;
+}
 
-const { name, specialty, summary, cvButton } = Astro.props as HeroProps;
+const { name, specialty, summary, cvButton, tagline } = Astro.props as HeroProps;
 ---
 
 <section id="hero" class="flex flex-col items-start gap-4">
@@ -10,9 +15,15 @@ const { name, specialty, summary, cvButton } = Astro.props as HeroProps;
     {name}
   </h1>
   
-  <h2 class="text-xl sm:text-2xl text-slate-300">
+  {tagline && (
+    <h2 class="text-xl sm:text-2xl text-slate-300">
+      {tagline}
+    </h2>
+  )}
+
+  <h3 class="text-lg sm:text-xl text-slate-400">
     {specialty}
-  </h2>
+  </h3>
   
   <p class="mt-2 max-w-2xl text-base sm:text-lg text-slate-400">
     {summary}

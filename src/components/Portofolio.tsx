@@ -101,12 +101,24 @@ const SITE_CONTENT = {
       tech: ["Laravel", "JavaScript", "Tailwind CSS", "SQL Server"],
       alt: "Screenshot website portofolio Naufal Ibrahim",
     },
+
+    {
+    title: "Henkaten Dashboard",
+    summary: "A website that monitors all changes occurring in the factory in real time, including employees, machines, methods, and materials.",
+    linkPreview: "https://github.com/NaufalIbrahim68/Hentaken",
+    linkSource: "https://github.com/NaufalIbrahim68/Hentaken",
+     tech: ["Laravel", "JavaScript", "Tailwind CSS", "SQL Server"],
+    alt: "Dashboard monitoring perubahan di pabrik secara real time",
+  },
+
   ],
   about: {
     description: `Halo, saya Naufal Ibrahim, Saya adalah lulusan baru dari Program Studi Sistem Informasi di Universitas Telkom Purwokerto.
 
 Saya adalah seorang Fullstack Developer dengan latar belakang Sistem Informasi. Saya berpengalaman dalam membangun aplikasi web modern menggunakan Laravel Framework, Tailwind CSS, dan Bahasa Pemrograman PHP.Fokus utama saya adalah menciptakan aplikasi yang tidak hanya fungsional, tetapi juga memiliki UI/UX yang intuitif, responsif, dan mudah digunakan. Saya juga terbiasa menyusun dokumentasi sistem yang rapi, mulai dari manual book hingga diagram UML, untuk memastikan keberlanjutan proyek.`,
   },
+
+  
 }
 
 const ANIMATIONS = {
@@ -128,6 +140,7 @@ const ANIMATIONS = {
       container: "hover:shadow-2xl hover:shadow-indigo-200/50 transition-all duration-300",
       image: "hover:scale-105 hover:rotate-1 transition-all duration-500 ease-in-out",
     },
+    
   ],
 }
 

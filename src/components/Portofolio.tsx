@@ -33,7 +33,7 @@ const SITE_CONTENT = {
   hero: {
     name: "Hi, I'm Naufal Ibrahim",
     tagline: "Fullstack Developer",
-    summary: "Saya seorang Fullstack Developer dengan fokus pada Laravel (PHP), Tailwind CSS, dan JavaScript/Next.js untuk membangun aplikasi web yang cepat, modern, dan responsif.",
+    summary: "I am a Fullstack Developer specializing in Laravel (PHP), Tailwind CSS, and JavaScript/Next.js to build fast, modern, and responsive web applications.",
     cvButton: {
       text: "Resume",
       link: "https://drive.google.com/file/d/1x1l1EZpd-nY9vriFZSBV-L6T2r3vbe0v/view?usp=sharing",
@@ -113,9 +113,9 @@ const SITE_CONTENT = {
 
   ],
   about: {
-    description: `Halo, saya Naufal Ibrahim, Saya adalah lulusan baru dari Program Studi Sistem Informasi di Universitas Telkom Purwokerto.
+    description: `Hello, my name is Naufal Ibrahim. I am a freshgraduate of the Information Systems program at Telkom University Purwokerto.
 
-Saya adalah seorang Fullstack Developer dengan latar belakang Sistem Informasi. Saya berpengalaman dalam membangun aplikasi web modern menggunakan Laravel Framework, Tailwind CSS, dan Bahasa Pemrograman PHP.Fokus utama saya adalah menciptakan aplikasi yang tidak hanya fungsional, tetapi juga memiliki UI/UX yang intuitif, responsif, dan mudah digunakan. Saya juga terbiasa menyusun dokumentasi sistem yang rapi, mulai dari manual book hingga diagram UML, untuk memastikan keberlanjutan proyek.`,
+I am a Fullstack Developer with a background in Information Systems. I have experience in building modern web applications using the Laravel Framework, Tailwind CSS, and PHP programming language. My main focus is on creating applications that are not only functional but also have intuitive, responsive, and user-friendly UI/UX. I am also accustomed to compiling well-organized system documentation, from manuals to UML diagrams, to ensure project sustainability.`,
   },
 
   
@@ -389,7 +389,7 @@ export default function Home() {
 
                 <div className="space-y-6">
                   <p className="text-slate-400 leading-relaxed">
-                    Saya terbuka untuk diskusi tentang peluang kerja, kolaborasi proyek, atau sekadar berbagi pengalaman tentang development. Mari terhubung!
+                    I am open to discussions about job opportunities, project collaborations, or simply sharing experiences about development. Let's connect!
                   </p>
 
                   {/* Contact Cards */}
@@ -467,9 +467,9 @@ export default function Home() {
 
                   {/* Call to Action */}
                   <div className="mt-8 p-6 bg-gradient-to-r from-teal-900/20 to-blue-900/20 rounded-lg border border-teal-400/20">
-                    <h3 className="font-medium text-slate-200 mb-2">Mari Berkolaborasi!</h3>
+                    <h3 className="font-medium text-slate-200 mb-2">Let's collaborate!</h3>
                     <p className="text-sm text-slate-400 mb-4">
-                      Punya ide proyek menarik atau butuh developer untuk tim Anda? Saya siap membantu mewujudkan visi digital Anda.
+                      Have an interesting project idea or need a developer for your team? I'm ready to help bring your digital vision to life.
                     </p>
                     <a
                       href="mailto:ibrahimnaufal87@gmail.com?subject=Kolaborasi%20Proyek&body=Halo%20Naufal,%0A%0ASaya%20tertarik%20untuk%20berkolaborasi%20dengan%20Anda..."

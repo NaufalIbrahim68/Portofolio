@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { GithubIcon, LinkedinIcon, InstagramIcon, Mail, Download, ExternalLink, Sparkles, Code2, Database, Palette } from "lucide-react";
+import { GithubIcon, LinkedinIcon, InstagramIcon, Mail, Download, ExternalLink, Sparkles, Code2, Database, Palette, ChevronLeft, ChevronRight, Image as ImageIcon } from "lucide-react";
 import { Github } from "lucide-react";
 
 
@@ -36,7 +36,7 @@ const SITE_CONTENT = {
     summary: "I am a Fullstack Developer specializing in Laravel (PHP), Tailwind CSS, and JavaScript/Next.js to build fast, modern, and responsive web applications.",
     cvButton: {
       text: "Resume",
-      link: "https://drive.google.com/file/d/1x1l1EZpd-nY9vriFZSBV-L6T2r3vbe0v/view?usp=sharing",
+      link: "https://onedrive.live.com/?id=%2Fpersonal%2F047c5badde70755f%2FDocuments%2FCV%20Naufal%20Ibrahim&viewid=877814e5%2D266e%2D4152%2D90e1%2D172b151a48f8&view=0",
     },
   },
   experience: [
@@ -85,15 +85,6 @@ const SITE_CONTENT = {
       image: "/projects/di-input.png",
       tech: ["Laravel", "SQL Server", "Tailwind CSS", "JavaScript"],
       alt: "Tampilan website DI Input",
-    },
-    {
-      title: "Company Profile PT. Tirta Nusa Persada",
-      summary: "Redesign website company profile modern menggunakan Laravel & Tailwind CSS, dilengkapi dokumentasi UML.",
-      linkPreview: "https://github.com/NaufalIbrahim68/Website-Profil",
-      linkSource: "https://github.com/NaufalIbrahim68/Website-Profil",
-      image: "/projects/tirta-nusa.png",
-      tech: ["Bootstrap", "UML", "HTML", "CSS"],
-      alt: "Preview website company profile PT. Tirta Nusa Persada",
     },
     {
       title: "IT Helpdesk",
@@ -346,7 +337,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="whitespace-pre-line mb-8 text-slate-400 leading-relaxed glass-card p-6 rounded-xl">
+            <div className="whitespace-pre-line mb-8 text-slate-400 leading-relaxed">
               {SITE_CONTENT.about.description}
             </div>
 
@@ -357,20 +348,30 @@ export default function Home() {
                 return (
                   <div
                     key={category.name}
-                    className="glass-card p-4 rounded-xl card-lift"
-                    style={{ transitionDelay: `${idx * 100}ms` }}
+                    className="group relative glass-card p-4 rounded-xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-teal-500/10"
+                    style={{
+                      transitionDelay: `${idx * 100}ms`,
+                      animation: `fade-slide-up 0.6s ease-out ${idx * 0.15}s both`
+                    }}
                   >
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className={`p-2 rounded-lg bg-gradient-to-r ${category.color}`}>
-                        <CategoryIcon size={16} className="text-white" />
+                    {/* Animated gradient border on hover */}
+                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(135deg, rgba(20,184,166,0.1) 0%, rgba(59,130,246,0.1) 50%, rgba(168,85,247,0.1) 100%)' }}></div>
+
+                    {/* Glow effect */}
+                    <div className="absolute -inset-1 bg-gradient-to-r from-teal-500/20 via-blue-500/20 to-purple-500/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+
+                    <div className="flex items-center gap-3 mb-3 relative z-10">
+                      <div className={`p-2.5 rounded-xl bg-gradient-to-br ${category.color} shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
+                        <CategoryIcon size={18} className="text-white" />
                       </div>
-                      <span className="text-sm font-medium text-slate-200">{category.name}</span>
+                      <span className="text-sm font-semibold text-slate-200 group-hover:text-white transition-colors">{category.name}</span>
                     </div>
-                    <div className="flex flex-wrap gap-2">
-                      {category.skills.map((skill) => (
+                    <div className="flex flex-wrap gap-2 relative z-10">
+                      {category.skills.map((skill, skillIdx) => (
                         <span
                           key={skill}
-                          className="tech-badge inline-flex items-center rounded-full bg-slate-800/50 px-3 py-1 text-xs font-medium text-slate-300 ring-1 ring-inset ring-slate-700 hover:ring-teal-400/50 transition-all duration-300"
+                          className="tech-badge inline-flex items-center rounded-full bg-slate-800/50 px-3 py-1 text-xs font-medium text-slate-300 ring-1 ring-inset ring-slate-700 hover:ring-teal-400/50 hover:text-teal-300 hover:bg-slate-700/50 transition-all duration-300 cursor-default"
+                          style={{ transitionDelay: `${skillIdx * 50}ms` }}
                         >
                           {skill}
                         </span>
@@ -384,7 +385,8 @@ export default function Home() {
             {/* CTA Button */}
             <a
               href={SITE_CONTENT.hero.cvButton.link}
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-500 hover:to-teal-400 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-teal-500/25 hover:scale-105"
             >
               <Download size={16} className="group-hover:animate-bounce" />
@@ -406,30 +408,44 @@ export default function Home() {
               <span className="flex-1 h-px bg-gradient-to-r from-teal-500/50 to-transparent"></span>
             </h2>
             <div className="space-y-6 relative pl-8">
-              {/* Timeline line */}
-              <div className="absolute left-[3px] top-2 bottom-2 w-0.5 bg-gradient-to-b from-teal-500 via-blue-500 to-purple-500/20"></div>
+              {/* Timeline line with animated gradient */}
+              <div className="absolute left-[3px] top-2 bottom-2 w-0.5 overflow-hidden">
+                <div className="w-full h-full bg-gradient-to-b from-teal-500 via-blue-500 to-purple-500/20" style={{ animation: 'shimmer 3s linear infinite', backgroundSize: '100% 200%' }}></div>
+              </div>
 
               {SITE_CONTENT.experience.map((exp, index) => (
                 <div
                   key={index}
-                  className="group relative glass-card rounded-xl p-6 card-lift"
-                  style={{ transitionDelay: `${index * 150}ms` }}
+                  className="group relative glass-card rounded-xl p-6 overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:shadow-xl hover:shadow-teal-500/10"
+                  style={{
+                    transitionDelay: `${index * 150}ms`,
+                    animation: `fade-slide-up 0.6s ease-out ${index * 0.2}s both`
+                  }}
                 >
-                  {/* Timeline dot */}
-                  <div className="absolute -left-[29px] top-8 w-3 h-3 rounded-full bg-teal-400 ring-4 ring-slate-900 shadow-lg shadow-teal-400/50"></div>
+                  {/* Animated glow effect on hover */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-teal-500/20 via-blue-500/20 to-purple-500/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
 
-                  <header className="mb-2 text-xs font-semibold uppercase tracking-wide text-teal-400" aria-label={`${exp.startDate} — ${exp.endDate}`}>
+                  {/* Background gradient on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                  {/* Timeline dot with pulse animation */}
+                  <div className="absolute -left-[29px] top-8">
+                    <div className="w-3 h-3 rounded-full bg-teal-400 ring-4 ring-slate-900 shadow-lg shadow-teal-400/50 group-hover:scale-125 transition-transform duration-300"></div>
+                    <div className="absolute inset-0 w-3 h-3 rounded-full bg-teal-400 animate-ping opacity-30"></div>
+                  </div>
+
+                  <header className="mb-2 text-xs font-semibold uppercase tracking-wide text-teal-400 group-hover:text-teal-300 transition-colors" aria-label={`${exp.startDate} — ${exp.endDate}`}>
                     {exp.startDate} — {exp.endDate}
                   </header>
-                  <h3 className="font-medium leading-snug text-slate-200 text-lg mb-3">
+                  <h3 className="font-medium leading-snug text-slate-200 text-lg mb-3 group-hover:text-white transition-colors">
                     {exp.position}
                     <span className="text-slate-400"> · </span>
-                    <span className="text-teal-400">{exp.company}</span>
+                    <span className="text-teal-400 group-hover:text-teal-300 transition-colors">{exp.company}</span>
                   </h3>
                   <div className="text-sm leading-normal text-slate-400 space-y-2">
                     {exp.summary.map((item, idx) => (
-                      <p key={idx} className="flex items-start gap-2">
-                        <span className="text-teal-400 mt-1">▹</span>
+                      <p key={idx} className="flex items-start gap-2 group-hover:text-slate-300 transition-colors" style={{ transitionDelay: `${idx * 50}ms` }}>
+                        <span className="text-teal-400 mt-1 group-hover:animate-pulse">▹</span>
                         <span>{item}</span>
                       </p>
                     ))}
@@ -453,85 +469,152 @@ export default function Home() {
               <span className="flex-1 h-px bg-gradient-to-r from-teal-500/50 to-transparent"></span>
             </h2>
             <div className="space-y-6">
-              {SITE_CONTENT.projects.map((project, index) => (
-                <div
-                  key={index}
-                  className="group relative glass-card rounded-xl overflow-hidden card-lift gradient-border"
-                  style={{ transitionDelay: `${index * 150}ms` }}
-                >
-                  {/* Project Image Preview */}
-                  {project.image && (
-                    <div className="relative h-48 md:h-56 overflow-hidden">
-                      <img
-                        src={project.image}
-                        alt={project.alt}
-                        className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110"
-                        onError={(e) => {
-                          // Hide image container if image fails to load
-                          (e.target as HTMLImageElement).parentElement!.style.display = 'none';
-                        }}
-                      />
-                      {/* Gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300"></div>
+              {SITE_CONTENT.projects.map((project, index) => {
+                // Carousel state for each project
+                const [activeSlide, setActiveSlide] = useState(0)
+                const hasImage = !!project.image
 
-                      {/* View Preview badge */}
-                      <a
-                        href={project.linkPreview}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-slate-900/80 backdrop-blur-sm text-xs font-medium text-teal-300 border border-teal-400/30 opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-teal-500 hover:text-white hover:border-teal-500 flex items-center gap-1.5"
-                      >
-                        <ExternalLink size={12} />
-                        Preview
-                      </a>
-                    </div>
-                  )}
+                return (
+                  <div
+                    key={index}
+                    className="group relative glass-card rounded-xl overflow-hidden"
+                    style={{ transitionDelay: `${index * 150}ms` }}
+                  >
+                    {/* Carousel Container */}
+                    <div className="relative">
+                      {/* Slide Indicators */}
+                      {hasImage && (
+                        <div className="absolute top-3 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
+                          <button
+                            onClick={() => setActiveSlide(0)}
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${activeSlide === 0 ? 'bg-teal-400 w-6' : 'bg-slate-500 hover:bg-slate-400'}`}
+                            aria-label="Show project info"
+                          />
+                          <button
+                            onClick={() => setActiveSlide(1)}
+                            className={`w-2 h-2 rounded-full transition-all duration-300 ${activeSlide === 1 ? 'bg-teal-400 w-6' : 'bg-slate-500 hover:bg-slate-400'}`}
+                            aria-label="Show project image"
+                          />
+                        </div>
+                      )}
 
-                  {/* Content */}
-                  <div className="p-4 relative">
-                    {/* Decorative corner gradient */}
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl from-teal-500/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      {/* Navigation Arrows */}
+                      {hasImage && (
+                        <>
+                          <button
+                            onClick={() => setActiveSlide(0)}
+                            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 p-1.5 rounded-full bg-slate-900/70 backdrop-blur-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-300 ${activeSlide === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                            aria-label="Previous slide"
+                          >
+                            <ChevronLeft size={18} />
+                          </button>
+                          <button
+                            onClick={() => setActiveSlide(1)}
+                            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 p-1.5 rounded-full bg-slate-900/70 backdrop-blur-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-300 ${activeSlide === 1 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                            aria-label="Next slide"
+                          >
+                            <ChevronRight size={18} />
+                          </button>
+                        </>
+                      )}
 
-                    <h3 className="font-medium leading-snug text-slate-200 relative z-10">
-                      <a
-                        className="inline-flex items-center text-base font-semibold hover:text-teal-300 transition-colors duration-300 group/link"
-                        href={project.linkPreview}
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        aria-label={`${project.title} (opens in a new tab)`}
-                      >
-                        <span>{project.title}</span>
-                        <ExternalLink className="ml-1.5 h-3.5 w-3.5 transition-transform duration-300 group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
-                      </a>
-                    </h3>
-                    <p className="mt-2 text-xs leading-normal text-slate-400">{project.summary}</p>
+                      {/* Slides Wrapper */}
+                      <div className="relative overflow-hidden">
+                        <div
+                          className="flex transition-transform duration-500 ease-out"
+                          style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+                        >
+                          {/* Slide 1: Project Info */}
+                          <div className="w-full flex-shrink-0 p-5 min-h-[180px]">
+                            <div className="relative">
+                              {/* Decorative corner gradient */}
+                              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-teal-500/10 to-transparent rounded-bl-full"></div>
 
-                    {/* GitHub Link */}
-                    <a
-                      href={project.linkSource}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-2 inline-flex items-center text-xs text-slate-500 hover:text-teal-400 transition-colors duration-300 group/source"
-                    >
-                      <Github size={12} className="mr-1 group-hover/source:rotate-12 transition-transform" />
-                      View Source
-                    </a>
+                              <h3 className="font-medium leading-snug text-slate-200 relative z-10 pr-8">
+                                <a
+                                  className="inline-flex items-center text-base font-semibold hover:text-teal-300 transition-colors duration-300 group/link"
+                                  href={project.linkPreview}
+                                  target="_blank"
+                                  rel="noreferrer noopener"
+                                  aria-label={`${project.title} (opens in a new tab)`}
+                                >
+                                  <span>{project.title}</span>
+                                  <ExternalLink className="ml-1.5 h-3.5 w-3.5 transition-transform duration-300 group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
+                                </a>
+                              </h3>
+                              <p className="mt-2 text-xs leading-relaxed text-slate-400 line-clamp-3">{project.summary}</p>
 
-                    {/* Tech Stack */}
-                    {project.tech && (
-                      <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Technologies used">
-                        {project.tech.map((tech) => (
-                          <li key={tech}>
-                            <div className="tech-badge flex items-center rounded-full bg-teal-400/10 px-2 py-0.5 text-xs font-medium leading-5 text-teal-300 ring-1 ring-inset ring-teal-400/20 hover:bg-teal-400/20 transition-colors duration-300">
-                              {tech}
+                              {/* GitHub Link */}
+                              <a
+                                href={project.linkSource}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-3 inline-flex items-center text-xs text-slate-500 hover:text-teal-400 transition-colors duration-300 group/source"
+                              >
+                                <Github size={12} className="mr-1 group-hover/source:rotate-12 transition-transform" />
+                                View Source
+                              </a>
+
+                              {/* Tech Stack */}
+                              {project.tech && (
+                                <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Technologies used">
+                                  {project.tech.map((tech) => (
+                                    <li key={tech}>
+                                      <div className="tech-badge flex items-center rounded-full bg-teal-400/10 px-2 py-0.5 text-xs font-medium text-teal-300 ring-1 ring-inset ring-teal-400/20">
+                                        {tech}
+                                      </div>
+                                    </li>
+                                  ))}
+                                </ul>
+                              )}
+
+                              {/* View Image hint */}
+                              {hasImage && (
+                                <button
+                                  onClick={() => setActiveSlide(1)}
+                                  className="mt-3 inline-flex items-center gap-1 text-xs text-slate-500 hover:text-teal-400 transition-colors"
+                                >
+                                  <ImageIcon size={12} />
+                                  View Screenshot
+                                </button>
+                              )}
                             </div>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                          </div>
+
+                          {/* Slide 2: Image Only */}
+                          {hasImage && (
+                            <div className="w-full flex-shrink-0 min-h-[180px]">
+                              <div className="relative h-full">
+                                <img
+                                  src={project.image}
+                                  alt={project.alt}
+                                  className="w-full h-full min-h-[180px] max-h-[280px] object-cover object-top"
+                                  onError={(e) => {
+                                    (e.target as HTMLImageElement).parentElement!.innerHTML = '<div class="flex items-center justify-center h-full min-h-[180px] text-slate-500 text-sm">Image not available</div>';
+                                  }}
+                                />
+                                {/* Overlay with project title */}
+                                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent">
+                                  <p className="text-sm font-medium text-slate-200">{project.title}</p>
+                                  <a
+                                    href={project.linkPreview}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 text-xs text-teal-400 hover:text-teal-300 mt-1"
+                                  >
+                                    <ExternalLink size={10} />
+                                    Open Preview
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </section>
@@ -550,7 +633,7 @@ export default function Home() {
             </h2>
 
             <div className="space-y-6">
-              <p className="text-slate-400 leading-relaxed glass-card p-4 rounded-xl">
+              <p className="text-slate-400 leading-relaxed">
                 I am open to discussions about job opportunities, project collaborations, or simply sharing experiences about development. Let's connect!
               </p>
 
@@ -651,17 +734,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="max-w-md pb-16 text-sm text-slate-500 sm:pb-0 glass-card p-4 rounded-xl">
-          <p className="flex items-center flex-wrap gap-1">
-            Crafted with
-            <span className="text-teal-400 font-medium">Next.js</span>
-            and
-            <span className="text-teal-400 font-medium">Tailwind CSS</span>.
-            Deployed on
-            <span className="text-teal-400 font-medium">Vercel</span>.
-          </p>
-        </footer>
+
       </main>
     </div>
   )

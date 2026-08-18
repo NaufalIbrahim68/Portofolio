@@ -79,25 +79,25 @@ const SITE_CONTENT = {
   projects: [
     {
       title: "DI Input",
-      summary: "Website for exporting Excel files and managing them into concrete data that can be used in the company's system.",
+      summary: "Website logistics management information system developed for PT Astra Visteon Indonesia to fulfill regulatory requirements from the relevant government ministry. The system serves as a centralized platform for managing Delivery Instruction (DI) data from suppliers to the factory, including PO numbers, part numbers (Supplier, BAAN, and Visteon), quantities, and goods receipt times. Based on the DI data, the system can generate Delivery Schedules (DS) for each part number, complete with preparation status tracking and AGV process integration. It also provides an interactive dashboard with visualizations of goods receipt timelines and preparation status charts, data filtering capabilities, PDF and Excel report exports, bulk data import via Excel, and a login authentication system to ensure secure access.",
       linkPreview: "https://drive.google.com/drive/folders/1qfps0Ye5yKFN13j8Inx8CEecEHTKtnW2?usp=sharing",
-      linkSource: "https://github.com/NaufalIbrahim68/",
+      linkSource: "https://github.com/NaufalIbrahim68/DI-Input",
       image: "/projects/di-input.png",
       tech: ["Laravel", "SQL Server", "Tailwind CSS", "JavaScript"],
       alt: "Tampilan website DI Input",
     },
     {
       title: "IT Helpdesk",
-      summary: "Website to make it easier for IT support to manage ticketing and provide feedback to employees via email.",
+      summary: "IT-Helpdesk is an internal company helpdesk ticket management system that allows employees to submit IT support requests by selecting the request type and issue category. Incoming tickets are managed by the IT admin team, who are responsible for processing, prioritizing, and updating the ticket status from Pending and In Progress to Solved or Rejected. Each ticket can also include admin notes that users can view directly from their dashboard.",
       linkPreview: "https://drive.google.com/drive/folders/14P4GFv52olNy-wb7QlGV8aLRUOzpmQSc?usp=sharing",
-      linkSource: "https://github.com/NaufalIbrahim68/",
+      linkSource: "https://github.com/NaufalIbrahim68/IT-Helpdesk",
       image: "/projects/it-helpdesk.png",
       tech: ["Laravel", "JavaScript", "Tailwind CSS", "SQL Server"],
       alt: "Screenshot website IT Helpdesk",
     },
     {
       title: "Henkaten Dashboard",
-      summary: "A website that monitors all changes occurring in the factory in real time, including employees, machines, methods, and materials.",
+      summary: "Web based application designed to record, monitor, and control every change (henkaten) occurring on the production line in real time. The application covers four categories of changes based on the 4M principle: Man Power (workforce), Machine, Material (raw materials), and Method (work methods). Each reported change goes through an approval process by the relevant Section Head (Production, PPIC, or QC), ensuring that all changes are properly documented and authorized.",
       linkPreview: "https://drive.google.com/drive/folders/1KdC-kwSIUdrFT6FL8r3MVARoA_iYmQ41?usp=sharing",
       linkSource: "https://github.com/NaufalIbrahim68/Hentaken",
       image: "/projects/henkaten.png",
@@ -120,19 +120,19 @@ const skillCategories = [
     name: "Frontend",
     icon: Palette,
     color: "from-pink-500 to-rose-500",
-    skills: ["React", "Next.js", "Tailwind CSS", "JavaScript", "TypeScript"]
+    skills: ["React", "Next.js", "Tailwind CSS", "JavaScript", "TypeScript", "Vue.js", "Angular.js"]
   },
   {
     name: "Backend",
     icon: Code2,
     color: "from-teal-500 to-emerald-500",
-    skills: ["Laravel", "PHP"]
+    skills: ["Laravel", "Django"]
   },
   {
     name: "Database",
     icon: Database,
     color: "from-blue-500 to-indigo-500",
-    skills: ["MySQL", "SQL Server"]
+    skills: ["MySQL", "SQL Server", "PostgreSQL", "MongoDB"]
   }
 ]
 
@@ -470,146 +470,61 @@ export default function Home() {
             </h2>
             <div className="space-y-6">
               {SITE_CONTENT.projects.map((project, index) => {
-                // Carousel state for each project
-                const [activeSlide, setActiveSlide] = useState(0)
-                const hasImage = !!project.image
-
                 return (
                   <div
                     key={index}
                     className="group relative glass-card rounded-xl overflow-hidden"
                     style={{ transitionDelay: `${index * 150}ms` }}
                   >
-                    {/* Carousel Container */}
-                    <div className="relative">
-                      {/* Slide Indicators */}
-                      {hasImage && (
-                        <div className="absolute top-3 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
-                          <button
-                            onClick={() => setActiveSlide(0)}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${activeSlide === 0 ? 'bg-teal-400 w-6' : 'bg-slate-500 hover:bg-slate-400'}`}
-                            aria-label="Show project info"
-                          />
-                          <button
-                            onClick={() => setActiveSlide(1)}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${activeSlide === 1 ? 'bg-teal-400 w-6' : 'bg-slate-500 hover:bg-slate-400'}`}
-                            aria-label="Show project image"
-                          />
+                    <div className="p-5">
+                      <div className="relative">
+                        {/* Decorative corner gradient */}
+                        <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-teal-500/10 to-transparent rounded-bl-full"></div>
+
+                        <h3 className="font-medium leading-snug text-slate-200 relative z-10 pr-8">
+                          <span className="text-base font-semibold">
+                            {project.title}
+                          </span>
+                        </h3>
+                        <p className="mt-2 text-xs leading-relaxed text-slate-400 line-clamp-3">{project.summary}</p>
+
+                        {/* Action Links */}
+                        <div className="mt-3 flex items-center gap-4">
+                          {/* View Screenshot - links to Google Drive */}
+                          <a
+                            href={project.linkPreview}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center text-xs text-slate-500 hover:text-teal-400 transition-colors duration-300 group/screenshot"
+                          >
+                            <ImageIcon size={12} className="mr-1 group-hover/screenshot:scale-110 transition-transform" />
+                            View Screenshot
+                          </a>
+
+                          {/* GitHub Link */}
+                          <a
+                            href={project.linkSource}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center text-xs text-slate-500 hover:text-teal-400 transition-colors duration-300 group/source"
+                          >
+                            <Github size={12} className="mr-1 group-hover/source:rotate-12 transition-transform" />
+                            View Source
+                          </a>
                         </div>
-                      )}
 
-                      {/* Navigation Arrows */}
-                      {hasImage && (
-                        <>
-                          <button
-                            onClick={() => setActiveSlide(0)}
-                            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 p-1.5 rounded-full bg-slate-900/70 backdrop-blur-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-300 ${activeSlide === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
-                            aria-label="Previous slide"
-                          >
-                            <ChevronLeft size={18} />
-                          </button>
-                          <button
-                            onClick={() => setActiveSlide(1)}
-                            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 p-1.5 rounded-full bg-slate-900/70 backdrop-blur-sm text-slate-300 hover:text-white hover:bg-slate-800 transition-all duration-300 ${activeSlide === 1 ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
-                            aria-label="Next slide"
-                          >
-                            <ChevronRight size={18} />
-                          </button>
-                        </>
-                      )}
-
-                      {/* Slides Wrapper */}
-                      <div className="relative overflow-hidden">
-                        <div
-                          className="flex transition-transform duration-500 ease-out"
-                          style={{ transform: `translateX(-${activeSlide * 100}%)` }}
-                        >
-                          {/* Slide 1: Project Info */}
-                          <div className="w-full flex-shrink-0 p-5 min-h-[180px]">
-                            <div className="relative">
-                              {/* Decorative corner gradient */}
-                              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-teal-500/10 to-transparent rounded-bl-full"></div>
-
-                              <h3 className="font-medium leading-snug text-slate-200 relative z-10 pr-8">
-                                <a
-                                  className="inline-flex items-center text-base font-semibold hover:text-teal-300 transition-colors duration-300 group/link"
-                                  href={project.linkPreview}
-                                  target="_blank"
-                                  rel="noreferrer noopener"
-                                  aria-label={`${project.title} (opens in a new tab)`}
-                                >
-                                  <span>{project.title}</span>
-                                  <ExternalLink className="ml-1.5 h-3.5 w-3.5 transition-transform duration-300 group-hover/link:-translate-y-1 group-hover/link:translate-x-1" />
-                                </a>
-                              </h3>
-                              <p className="mt-2 text-xs leading-relaxed text-slate-400 line-clamp-3">{project.summary}</p>
-
-                              {/* GitHub Link */}
-                              <a
-                                href={project.linkSource}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-3 inline-flex items-center text-xs text-slate-500 hover:text-teal-400 transition-colors duration-300 group/source"
-                              >
-                                <Github size={12} className="mr-1 group-hover/source:rotate-12 transition-transform" />
-                                View Source
-                              </a>
-
-                              {/* Tech Stack */}
-                              {project.tech && (
-                                <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Technologies used">
-                                  {project.tech.map((tech) => (
-                                    <li key={tech}>
-                                      <div className="tech-badge flex items-center rounded-full bg-teal-400/10 px-2 py-0.5 text-xs font-medium text-teal-300 ring-1 ring-inset ring-teal-400/20">
-                                        {tech}
-                                      </div>
-                                    </li>
-                                  ))}
-                                </ul>
-                              )}
-
-                              {/* View Image hint */}
-                              {hasImage && (
-                                <button
-                                  onClick={() => setActiveSlide(1)}
-                                  className="mt-3 inline-flex items-center gap-1 text-xs text-slate-500 hover:text-teal-400 transition-colors"
-                                >
-                                  <ImageIcon size={12} />
-                                  View Screenshot
-                                </button>
-                              )}
-                            </div>
-                          </div>
-
-                          {/* Slide 2: Image Only */}
-                          {hasImage && (
-                            <div className="w-full flex-shrink-0 min-h-[180px]">
-                              <div className="relative h-full">
-                                <img
-                                  src={project.image}
-                                  alt={project.alt}
-                                  className="w-full h-full min-h-[180px] max-h-[280px] object-cover object-top"
-                                  onError={(e) => {
-                                    (e.target as HTMLImageElement).parentElement!.innerHTML = '<div class="flex items-center justify-center h-full min-h-[180px] text-slate-500 text-sm">Image not available</div>';
-                                  }}
-                                />
-                                {/* Overlay with project title */}
-                                <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent">
-                                  <p className="text-sm font-medium text-slate-200">{project.title}</p>
-                                  <a
-                                    href={project.linkPreview}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1 text-xs text-teal-400 hover:text-teal-300 mt-1"
-                                  >
-                                    <ExternalLink size={10} />
-                                    Open Preview
-                                  </a>
+                        {/* Tech Stack */}
+                        {project.tech && (
+                          <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Technologies used">
+                            {project.tech.map((tech) => (
+                              <li key={tech}>
+                                <div className="tech-badge flex items-center rounded-full bg-teal-400/10 px-2 py-0.5 text-xs font-medium text-teal-300 ring-1 ring-inset ring-teal-400/20">
+                                  {tech}
                                 </div>
-                              </div>
-                            </div>
-                          )}
-                        </div>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                     </div>
                   </div>

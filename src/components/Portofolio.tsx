@@ -1,8 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { GithubIcon, LinkedinIcon, InstagramIcon, Mail, Download, ExternalLink, Sparkles, Code2, Database, Palette, ChevronLeft, ChevronRight, Image as ImageIcon } from "lucide-react";
-import { Github } from "lucide-react";
+import { GithubIcon, LinkedinIcon, InstagramIcon, Mail, Download, ExternalLink, Sparkles, Code2, Database, Palette, Image as ImageIcon } from "lucide-react";
 
 
 // Configuration data (matching your config structure)
@@ -508,7 +507,7 @@ export default function Home() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center text-xs text-slate-500 hover:text-teal-400 transition-colors duration-300 group/source"
                           >
-                            <Github size={12} className="mr-1 group-hover/source:rotate-12 transition-transform" />
+                            <GithubIcon size={12} className="mr-1 group-hover/source:rotate-12 transition-transform" />
                             View Source
                           </a>
                         </div>

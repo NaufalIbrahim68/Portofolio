@@ -80,7 +80,7 @@ const SITE_CONTENT = {
     {
       title: "DI Input",
       summary: "Website for exporting Excel files and managing them into concrete data that can be used in the company's system.",
-      linkPreview: "https://github.com/NaufalIbrahim68/DI-Input",
+      linkPreview: "https://drive.google.com/drive/folders/1qfps0Ye5yKFN13j8Inx8CEecEHTKtnW2?usp=sharing",
       linkSource: "https://github.com/NaufalIbrahim68/",
       image: "/projects/di-input.png",
       tech: ["Laravel", "SQL Server", "Tailwind CSS", "JavaScript"],
@@ -89,7 +89,7 @@ const SITE_CONTENT = {
     {
       title: "IT Helpdesk",
       summary: "Website to make it easier for IT support to manage ticketing and provide feedback to employees via email.",
-      linkPreview: "https://github.com/NaufalIbrahim68/IT-Helpdesk",
+      linkPreview: "https://drive.google.com/drive/folders/14P4GFv52olNy-wb7QlGV8aLRUOzpmQSc?usp=sharing",
       linkSource: "https://github.com/NaufalIbrahim68/",
       image: "/projects/it-helpdesk.png",
       tech: ["Laravel", "JavaScript", "Tailwind CSS", "SQL Server"],
@@ -98,7 +98,7 @@ const SITE_CONTENT = {
     {
       title: "Henkaten Dashboard",
       summary: "A website that monitors all changes occurring in the factory in real time, including employees, machines, methods, and materials.",
-      linkPreview: "https://github.com/NaufalIbrahim68/Hentaken",
+      linkPreview: "https://drive.google.com/drive/folders/1KdC-kwSIUdrFT6FL8r3MVARoA_iYmQ41?usp=sharing",
       linkSource: "https://github.com/NaufalIbrahim68/Hentaken",
       image: "/projects/henkaten.png",
       tech: ["Laravel", "JavaScript", "Tailwind CSS", "SQL Server"],

@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { GithubIcon, LinkedinIcon, InstagramIcon, Mail, Download, ExternalLink, Sparkles, Code2, Database, Palette, Image as ImageIcon } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail, Download, Sparkles, Code2, Database, Palette, Image as ImageIcon } from "lucide-react";
 
 
 // Configuration data (matching your config structure)
@@ -174,11 +174,11 @@ export default function Home() {
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'github':
-        return GithubIcon
+        return Github
       case 'linkedin':
-        return LinkedinIcon
+        return Linkedin
       case 'instagram':
-        return InstagramIcon
+        return Instagram
       default:
         return Mail
     }
@@ -507,7 +507,7 @@ export default function Home() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center text-xs text-slate-500 hover:text-teal-400 transition-colors duration-300 group/source"
                           >
-                            <GithubIcon size={12} className="mr-1 group-hover/source:rotate-12 transition-transform" />
+                            <Github size={12} className="mr-1 group-hover/source:rotate-12 transition-transform" />
                             View Source
                           </a>
                         </div>
